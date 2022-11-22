@@ -24,7 +24,7 @@ module Liquid
 
     # Called by `StackMachine` to call a method from this `Drop`.
     # Only public methods without parameters can be called here
-    def call(method : String) : Any
+    def call(method : String) : Liquid::Any
       raise Exception.new("Method #{method} not found for #{self.class.name}.")
     end
   end
