@@ -165,10 +165,9 @@ describe Parser do
     expect_raises(InvalidNode) do
       when_node = Block::When.new("when 'cake\"")
     end
-    
+
     expect_raises(InvalidNode) do
       when_node = Block::When.new("when \"cake'")
     end
-    
   end
 end

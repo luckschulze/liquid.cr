@@ -5,13 +5,13 @@ module Liquid
     macro inherited
       {% verbatim do %}
       macro finished
-        def call(method : String) : Any
+        def call(method : String) : Liquid::Any
           case method
           {% for method in @type.methods %}
             {% if method.args.size == 0 && method.visibility == :public %}
               when {{ method.name.stringify }}
                 ret = {{ method.name.id }}
-                ret.is_a?(Any) ? ret : Any.new(ret)
+                ret.is_a?(Liquid::Any) ? ret : Liquid::Any.new(ret)
             {% end %}
           {% end %}
           else
